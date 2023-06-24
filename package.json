@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --inspect src/server.js",
     "sass": "node-sass src/resources/sass/ -o src/public/css/ --watch",
-    "prettier": "prettier --write src/**/*.{js,json,scss}"
+    "prettier": "prettier --write src/**/*.{js,json,scss}",
+    "format": "lint-staged"
   },
   "lint-staged": {
     "src/**/*.{js,json,scss}": "prettier --write"
