@@ -1,0 +1,20 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::after {
+    display: none;
+  }
+
+  &__avatar {
+    --w: 30px;
+    width: var(--w);
+    height: var(--w);
+    border-radius: 50%;
+  }
+
+  &__name {
+    color: white;
+  }
+}
