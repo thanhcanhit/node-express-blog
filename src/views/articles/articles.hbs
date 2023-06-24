@@ -1,0 +1,35 @@
+<div class='table-responsive'>
+  <table class='table table-dark table-responsive'>
+    <thead>
+      <tr>
+        <th>Tên bài viết</th>
+        <th>Source code</th>
+        <th>Demo sản phẩm</th>
+        <th>Các tag</th>
+        <th>Ngày đăng</th>
+        <th>Thao tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each articles}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.sourceLink}}</td>
+          <td>{{this.previewLink}}</td>
+          <td>{{this.tag}}</td>
+          <td>{{this.createdAt}}</td>
+          <td>
+            <div class='d-flex gap-2'>
+              <a href="/articles/{{this._id}}/edit" class='btn btn-secondary'>Sửa</a>
+              <button class='btn btn-secondary'>Xóa</button>
+            </div>
+          </td>
+        </tr>
+        {{#else}}
+          <td colspan='8'>Bạn chưa đăng bài viết nào.
+            <a href='/articles/create'>Tới trang tạo bài viết</a></td>
+        {{/else}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>

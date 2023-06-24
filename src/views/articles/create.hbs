@@ -1,4 +1,5 @@
-<div style='max-width: 600px; margin-inline: auto'>
+<div class='bg-white p-4 rounded' style='max-width: 600px; margin-inline: auto'>
+  <h2 class='text-center'>Tạo bài viết mới</h2>
   <form method='post' action='/articles'>
     <div class='mb-3'>
       <label for='name' class='form-label'>Tên bài viết</label>
@@ -6,7 +7,7 @@
     </div>
     <div class='mb-3'>
       <label for='desc' class='form-label'>Mô tả</label>
-      <input type='text' class='form-control' name='desc' />
+      <textarea type='text' class='form-control' name='desc'></textarea>
     </div>
     <div class='mb-3'>
       <label for='imgPath' class='form-label'>Link hình ảnh</label>

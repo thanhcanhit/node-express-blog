@@ -1,0 +1,63 @@
+<div class='bg-white p-4 rounded' style='max-width: 600px; margin-inline: auto'>
+  <h2 class="text-center ">Cập nhật bài viết</h2>
+  {{#with article}}
+    <form method='post' action='/articles/{{this._id}}?_method=PUT'>
+      <div class='mb-3'>
+        <label for='name' class='form-label'>Tên bài viết</label>
+        <input
+          type='text'
+          class='form-control'
+          id="name"
+          name='name'
+          value='{{this.name}}'
+        />
+      </div>
+      <div class='mb-3'>
+        <label for='desc' class='form-label'>Mô tả</label>
+        <textarea type='text' class='form-control' name='desc' id="desc">{{this.desc}}
+        </textarea>
+      </div>
+      <div class='mb-3'>
+        <label for='imgPath' class='form-label'>Link hình ảnh</label>
+        <input
+          type='text'
+          class='form-control'
+          id="imgPath"
+          name='imgPath'
+          value='{{this.imgPath}}'
+        />
+      </div>
+      <div class='mb-3'>
+        <label for='sourceLink' class='form-label'>Link source</label>
+        <input
+          type='text'
+          class='form-control'
+          id="sourceLink"
+          name='sourceLink'
+          value='{{this.sourceLink}}'
+        />
+      </div>
+      <div class='mb-3'>
+        <label for='previewLink' class='form-label'>Link demo</label>
+        <input
+          type='text'
+          class='form-control'
+          id="previewLink"
+          name='previewLink'
+          value='{{this.previewLink}}'
+        />
+      </div>
+      <div class='mb-3'>
+        <label for='tag' class='form-label'>Tag list</label>
+        <input
+          type='text'
+          class='form-control'
+          id="tag"
+          name='tag'
+          value='{{this.tag}}'
+        />
+      </div>
+      <button type='submit' class='btn btn-primary w-100'>Sửa bài viết</button>
+    </form>
+  {{/with}}
+</div>

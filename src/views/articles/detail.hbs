@@ -1,17 +1,20 @@
 {{#with article}}
-  <div class='row'>
+  <div class='row my-4'>
     {{! HEADING }}
     <div class='col-12'>
-      <h1 class='text-center'>{{name}}</h1>
+      <h1 class='text-center' style='color: cornflowerblue'>{{name}}</h1>
     </div>
   </div>
 
   <div class='row mt-2'>
     {{! LEFT }}
-    <div class='col-lg-4 col-sm-12 mt-3'>
+    <div
+      class='col-lg-3 col-sm-12 bg-white rounded p-2 shadow position-sticky '
+      style='height: fit-content; top: 16px'
+    >
       <img
-        class='d-block w-100 rounded ratio-4x3'
-        style='height: 300px; object-fit: contain; object-position: top;'
+        class='d-block w-100 rounded'
+        style='height: 300px; object-fit: cover; object-position: top;'
         src='{{imgPath}}'
       />
 
@@ -37,11 +40,10 @@
     </div>
 
     {{! RIGHT }}
-    <div class='col-lg-8 col-sm-12'>
-      <h3>Hình ảnh liên quan:</h3>
+    <div class='col-lg-9 col-sm-12'>
       <div
         id='previewCarousel'
-        class='carousel slide bg-dark'
+        class='carousel slide bg-dark rounded'
         data-bs-ride='carousel'
       >
         <div class='carousel-indicators'>
@@ -68,7 +70,7 @@
             <img
               src='{{imgPath}}'
               class='d-block w-100'
-              style='height: 400px; object-fit: contain '
+              style='height: 500px; object-fit: contain '
               alt='...'
             />
           </div>
@@ -92,6 +94,20 @@
           <span class='visually-hidden'>Next</span>
         </button>
       </div>
+      <p class='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Sapiente hic blanditiis aspernatur quos ipsum nemo. Possimus
+        voluptatibus tenetur neque voluptates sapiente iste quaerat eaque earum,
+        modi esse repellendus odio dicta! Nulla tempora nihil obcaecati omnis
+        totam amet cum ratione? Tempora animi dolores nihil blanditiis,
+        doloremque recusandae quod sit vero aspernatur rerum, dolorum laudantium
+        nisi asperiores, tenetur suscipit dolorem fuga quos. Pariatur minima, in
+        rerum cumque dolore ad officiis fugit! Consequuntur suscipit molestiae
+        cumque quod iusto unde. Neque totam dicta possimus vel aspernatur, quas
+        est odit modi, temporibus molestiae officiis. Nisi. Cumque amet
+        voluptate dicta facere quod iusto reiciendis fugit impedit delectus
+        assumenda, minima eaque nam architecto provident ut atque porro odio
+        necessitatibus nemo dolor similique excepturi in. Libero, consequuntur
+        hic.</p>
     </div>
   </div>
 {{/with}}

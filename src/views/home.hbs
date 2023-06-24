@@ -1,16 +1,16 @@
 <div class='row'>
   {{#each articles}}
     <div class='col-lg-3 col-sm-6 col-md-4'>
-      <div class='card article-item'>
-        <div class='img-block'>
-          <a href='/articles/{{this.slug}}'>
+      <div class='card border-dark article-item'>
+        <a href='/articles/{{this.slug}}'>
+          <div class='img-block'>
             <img
               src='{{this.imgPath}}'
               class='card-img-top article-item__img'
               alt='{{this.name}}'
             />
-          </a>
-        </div>
+          </div>
+        </a>
         <div class='card-body'>
           <a
             href='/articles/{{this.slug}}'
@@ -28,7 +28,8 @@
           </a>
           <div class='article-item__control'>
             <a href='{{this.sourceLink}}' class='btn btn-dark w-100'>Source code</a>
-            <a href='{{this.previewLink}}' class='btn btn-dark w-100'>Demo Sản phẩm</a>
+            <a href='{{this.previewLink}}' class='btn btn-dark w-100'>Demo Sản
+              phẩm</a>
           </div>
         </div>
       </div>
