@@ -4,11 +4,15 @@ const hbs = require('express-handlebars');
 const path = require('path');
 
 const router = require('./routes/');
+const mongodb = require('./config/mongodb');
 
 const app = express();
 
 // Environment variables
 dotenv.config();
+
+// Connect db
+mongodb.connect();
 
 // Serve static file
 app.use(express.static(path.join(__dirname, 'public')));
