@@ -1,14 +1,25 @@
 const Article = require('../models/Article');
 
 function splitTag(tagListString) {
-  const result = tagListString.split(',');
-  return result.map((item) => item.trim());
+  let result = tagListString.split(',');
+  result = result.map((item) => item.trim());
+  return result.filter((item) => item != '');
 }
 
 class ArticleController {
   // [GET] /articles/create
   create(req, res, next) {
     res.render('articles/create');
+  }
+
+  // [GET] /articles/:slug
+  async get(req, res, next) {
+    try {
+      const article = await Article.findOne({ slug: req.params.slug });
+      res.render('articles/detail', {
+        article: article.toObject(),
+      });
+    } catch (error) {}
   }
 
   // [POST] /articles

@@ -1,0 +1,97 @@
+{{#with article}}
+  <div class='row'>
+    {{! HEADING }}
+    <div class='col-12'>
+      <h1 class='text-center'>{{name}}</h1>
+    </div>
+  </div>
+
+  <div class='row mt-2'>
+    {{! LEFT }}
+    <div class='col-lg-4 col-sm-12 mt-3'>
+      <img
+        class='d-block w-100 rounded ratio-4x3'
+        style='height: 300px; object-fit: contain; object-position: top;'
+        src='{{imgPath}}'
+      />
+
+      <div class='d-flex flex-column gap-2 my-2'>
+        <a href='{{previewLink}}' class='btn btn-dark w-100'>Demo Sản phẩm</a>
+        <a href='{{sourceLink}}' class='btn btn-dark w-100'>Source code</a>
+      </div>
+
+      <div class='tag'>
+        <b>Chủ đề:</b>
+        <ul class='tag__list'>
+          {{#each this.tag}}
+            <li class='tag__item'>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <p>
+        <b>Mô tả:</b>
+        {{desc}}
+      </p>
+
+    </div>
+
+    {{! RIGHT }}
+    <div class='col-lg-8 col-sm-12'>
+      <h3>Hình ảnh liên quan:</h3>
+      <div
+        id='previewCarousel'
+        class='carousel slide bg-dark'
+        data-bs-ride='carousel'
+      >
+        <div class='carousel-indicators'>
+          <button
+            type='button'
+            data-bs-target='#previewCarousel'
+            data-bs-slide-to='0'
+            class='active'
+            aria-current='true'
+          ></button>
+          <button
+            type='button'
+            data-bs-target='#previewCarousel'
+            data-bs-slide-to='1'
+          ></button>
+          <button
+            type='button'
+            data-bs-target='#previewCarousel'
+            data-bs-slide-to='2'
+          ></button>
+        </div>
+        <div class='carousel-inner'>
+          <div class='carousel-item active'>
+            <img
+              src='{{imgPath}}'
+              class='d-block w-100'
+              style='height: 400px; object-fit: contain '
+              alt='...'
+            />
+          </div>
+        </div>
+        <button
+          class='carousel-control-prev'
+          type='button'
+          data-bs-target='#carouselExampleIndicators'
+          data-bs-slide='prev'
+        >
+          <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+          <span class='visually-hidden'>Previous</span>
+        </button>
+        <button
+          class='carousel-control-next'
+          type='button'
+          data-bs-target='#carouselExampleIndicators'
+          data-bs-slide='next'
+        >
+          <span class='carousel-control-next-icon' aria-hidden='true'></span>
+          <span class='visually-hidden'>Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+{{/with}}

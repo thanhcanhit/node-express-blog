@@ -1,4 +1,4 @@
-@mixin webkitBox($line, $lineHeight: 1.4) {
+@mixin webkitBox($line, $lineHeight: 1.4, $fontSize: 20px) {
   -webkit-line-clamp: $line;
   -webkit-box-orient: vertical;
   overflow: hidden;
