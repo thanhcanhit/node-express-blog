@@ -1,3 +1,29 @@
-<form>
-  
-</form>
+<div style='max-width: 600px; margin-inline: auto'>
+  <form method='post' action='/articles'>
+    <div class='mb-3'>
+      <label for='name' class='form-label'>Tên bài viết</label>
+      <input type='text' class='form-control' name='name' />
+    </div>
+    <div class='mb-3'>
+      <label for='desc' class='form-label'>Mô tả</label>
+      <input type='text' class='form-control' name='desc' />
+    </div>
+    <div class='mb-3'>
+      <label for='imgPath' class='form-label'>Link hình ảnh</label>
+      <input type='text' class='form-control' name='imgPath' />
+    </div>
+    <div class='mb-3'>
+      <label for='sourceLink' class='form-label'>Link source</label>
+      <input type='text' class='form-control' name='sourceLink' />
+    </div>
+    <div class='mb-3'>
+      <label for='previewLink' class='form-label'>Link demo</label>
+      <input type='text' class='form-control' name='previewLink' />
+    </div>
+    <div class='mb-3'>
+      <label for='tag' class='form-label'>Tag list</label>
+      <input type='text' class='form-control' name='tag' />
+    </div>
+    <button type='submit' class='btn btn-primary w-100'>Tạo bài viết</button>
+  </form>
+</div>
