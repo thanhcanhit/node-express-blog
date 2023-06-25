@@ -5,7 +5,7 @@ class SiteController {
   // [GET] /
   async index(req, res, next) {
     try {
-      const articles = await Article.find({});
+      const articles = await Article.find({ deleted: false });
       res.status(200).render('home', {
         articles: mongooseArrayToObject(articles),
       });

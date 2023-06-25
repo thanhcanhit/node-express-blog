@@ -1,6 +1,6 @@
 <div class='my-2'>
-  <h1 class='text-white text-center'>Danh sách các bài viết đã đăng</h1>
-  <a href='/articles/trash' class='btn btn-primary'>Bài viết đã xóa ({{numTrash}})</a>
+  <h1 class='text-white text-center'>Danh sách bài viết đã xóa</h1>
+  <a href='/articles' class='btn btn-primary'>Danh sách bài viết đã đăng</a>
 </div>
 
 <div class='table-responsive'>
@@ -11,7 +11,7 @@
         <th>Source code</th>
         <th>Demo sản phẩm</th>
         <th>Các tag</th>
-        <th>Ngày đăng</th>
+        <th>Ngày xóa</th>
         <th>Thao tác</th>
       </tr>
     </thead>
@@ -22,26 +22,27 @@
           <td>{{this.sourceLink}}</td>
           <td>{{this.previewLink}}</td>
           <td>{{this.tag}}</td>
-          <td>{{this.createdAt}}</td>
+          <td>{{this.deletedAt}}</td>
           <td>
             <div class='d-flex gap-2'>
-              <a
-                href='/articles/{{this._id}}/edit'
-                class='btn btn-primary'
-              >Sửa</a>
               <button
-                class='btn btn-warning'
+                class='btn btn-success restore-btn'
+                value='{{this._id}}'
+              >Khôi phục</button>
+              <button
+                class='btn btn-danger'
                 data-bs-toggle='modal'
                 data-bs-target='#confirmModal'
                 data-bs-id='{{this._id}}'
-              >Xóa</button>
+              >Xóa vĩnh viễn</button>
             </div>
           </td>
         </tr>
       {{else}}
-        <td colspan='8' class="text-center ">Bạn chưa đăng bài viết nào.
-          <a href='/articles/create'>Tới trang tạo bài viết</a>
-        </td>
+        <tr>
+          <td colspan='8' class="text-center ">Thùng rác trống
+          </td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
@@ -64,11 +65,11 @@
         ></button>
       </div>
       <div class='modal-body'>
-        Mục này sẽ được chuyển sang thùng rác, bạn có thể khôi phục lại bất cứ
-        lúc nào
+        Mục này sẽ bị xóa vĩnh viễn và không thể khôi phục, bạn chắc chắn chứ?
       </div>
       <div class='modal-footer'>
-        <button type='button' class='btn btn-warning' id='btn-confirm'>Xóa ngay</button>
+        <button type='button' class='btn btn-danger' id='btn-confirm'>Xóa vĩnh
+          viễn</button>
         <button
           type='button'
           class='btn btn-secondary'
@@ -80,11 +81,15 @@
 </div>
 
 <script>
-  var articleId; const confirmModal = document.getElementById('confirmModal')
-  const btnConfirm = document.getElementById('btn-confirm'); const form =
+  var articleId; const confirmModal = document.getElementById('confirmModal');
+  const restoreButtons = document.querySelectorAll('.restore-btn'); const
+  btnConfirm = document.getElementById('btn-confirm'); const form =
   document.getElementById('form'); if (confirmModal) {
   confirmModal.addEventListener('show.bs.modal', event => { const button =
-  event.relatedTarget; articleId = button.getAttribute('data-bs-id'); }) }
-  btnConfirm.addEventListener('click', () => { form.action =
-  `/articles/${articleId}?_method=DELETE`; form.submit(); })
+  event.relatedTarget; articleId = button.getAttribute('data-bs-id'); }) };
+  function submitForm(action) { form.action = action; form.submit(); }
+  restoreButtons.forEach(btn => btn.addEventListener('click', () => { articleId
+  = btn.value; submitForm(`/articles/${articleId}/restore?_method=PATCH`); }))
+  btnConfirm.addEventListener('click', () => {
+  submitForm(`/articles/${articleId}/force?_method=DELETE`); })
 </script>

@@ -13,6 +13,8 @@ const Article = new Schema(
     previewLink: { type: String },
     tag: [{ type: String }],
     slug: { type: String, slug: 'name' },
+    deleted: { type: Boolean, default: false },
+    deletedAt: { type: Date, default: null },
   },
   {
     timestamps: true,
