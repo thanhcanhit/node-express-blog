@@ -11,6 +11,21 @@ class SiteController {
       });
     } catch (err) {}
   }
+
+  // [GET] /search
+  async search(req, res, next) {
+    const searchQuery = req.query.searchQuery;
+    try {
+      const articles = await Article.find({
+        deleted: false,
+        name: { $regex: searchQuery, $options: 'i' },
+      });
+      res.status(200).render('search', {
+        articles: mongooseArrayToObject(articles),
+        searchQuery,
+      });
+    } catch (err) {}
+  }
 }
 
 module.exports = new SiteController();

@@ -1,7 +1,32 @@
 <header class='header'>
   <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
     <div class='container'>
-      <a class='navbar-brand' href='/'>thanhcanhit.github.io</a>
+      <div class='d-flex gap-5'>
+        <a class='navbar-brand' href='/'>thanhcanhit.github.io</a>
+        <form class='d-flex w-100' action='/search' method='GET'>
+          <div class='input-group'>
+            <input
+              tabindex="1"
+              value="{{searchQuery}}"
+              {{#if searchQuery}}
+                autofocus
+              {{/if}}
+              class='form-control'
+              type='search'
+              placeholder='Tên bài viết...'
+              aria-label='Search'
+              name='searchQuery'
+            />
+            <button
+              class='btn btn-outline-secondary'
+              style='white-space: nowrap;'
+              type='submit'
+            >
+              🔍
+            </button>
+          </div>
+        </form>
+      </div>
       <div class='dropdown'>
         <button
           class='btn dropdown-toggle user'
