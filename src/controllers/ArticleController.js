@@ -22,7 +22,9 @@ class ArticleController {
         articles: mongooseArrayToObject(articles),
         numTrash,
       });
-    } catch (error) {}
+    } catch (err) {
+      next(err);
+    }
   }
 
   // [GET] /articles/trash
@@ -32,7 +34,9 @@ class ArticleController {
       res.render('articles/articles-trash', {
         articles: mongooseArrayToObject(articles),
       });
-    } catch (error) {}
+    } catch (err) {
+      next(err);
+    }
   }
 
   // [GET] /articles/:slug
@@ -45,7 +49,9 @@ class ArticleController {
       res.render('articles/detail', {
         article: article.toObject(),
       });
-    } catch (error) {}
+    } catch (err) {
+      next(err);
+    }
   }
 
   // [GET] /articles/:id/edit
@@ -58,7 +64,9 @@ class ArticleController {
       res.render('articles/edit', {
         article: article.toObject(),
       });
-    } catch (error) {}
+    } catch (err) {
+      next(err);
+    }
   }
 
   // [PUT] /articles/:id
@@ -72,7 +80,9 @@ class ArticleController {
       );
 
       res.status(200).redirect('/articles/');
-    } catch (error) {}
+    } catch (err) {
+      next(err);
+    }
   }
 
   // [POST] /articles

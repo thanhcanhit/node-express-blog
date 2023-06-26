@@ -9,7 +9,9 @@ class SiteController {
       res.status(200).render('home', {
         articles: mongooseArrayToObject(articles),
       });
-    } catch (err) {}
+    } catch (err) {
+      next(err);
+    }
   }
 
   // [GET] /search
@@ -24,7 +26,9 @@ class SiteController {
         articles: mongooseArrayToObject(articles),
         searchQuery,
       });
-    } catch (err) {}
+    } catch (err) {
+      next(err);
+    }
   }
 }
 
