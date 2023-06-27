@@ -7,6 +7,7 @@
   <table class='table table-dark table-responsive'>
     <thead>
       <tr>
+        <th>STT</th>
         <th>Tên bài viết</th>
         <th>Source code</th>
         <th>Demo sản phẩm</th>
@@ -18,11 +19,12 @@
     <tbody>
       {{#each articles}}
         <tr>
+          <td>{{sum @index 1}}</td>
           <td>{{this.name}}</td>
           <td>{{this.sourceLink}}</td>
           <td>{{this.previewLink}}</td>
           <td>{{this.tag}}</td>
-          <td>{{this.deletedAt}}</td>
+          <td>{{dateFormat this.deletedAt}}</td>
           <td>
             <div class='d-flex gap-2'>
               <button
@@ -40,7 +42,7 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan='8' class="text-center ">Thùng rác trống
+          <td colspan='8' class='text-center'>Thùng rác trống
           </td>
         </tr>
       {{/each}}

@@ -26,7 +26,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // View engine
-app.engine('hbs', hbs.engine({ extname: 'hbs' }));
+app.engine(
+  'hbs',
+  hbs.engine({
+    extname: 'hbs',
+    helpers: require('./config/handlebars-helper'),
+  })
+);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
