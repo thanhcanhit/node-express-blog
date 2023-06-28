@@ -136,6 +136,51 @@ class ArticleController {
       next(err);
     }
   }
+
+  // [POST] /articles/handle-form-actions
+  async handleFormAction(req, res, next) {
+    const { action, articleIds } = req.body;
+    switch (action) {
+      case 'delete': {
+        try {
+          await Article.updateMany(
+            { _id: { $in: articleIds } },
+            { deleted: true, deletedAt: Date.now() }
+          );
+          res.status(200).redirect('back');
+        } catch (err) {
+          next(err);
+        }
+        break;
+      }
+      case 'restore': {
+        try {
+          await Article.updateMany(
+            { _id: { $in: articleIds } },
+            { deleted: false, deletedAt: null }
+          );
+          res.status(200).redirect('back');
+        } catch (err) {
+          next(err);
+        }
+        break;
+      }
+
+      case 'force-delete': {
+        try {
+          await Article.deleteMany({ _id: { $in: articleIds } });
+          res.status(200).redirect('back');
+        } catch (err) {
+          next(err);
+        }
+        break;
+      }
+
+      default: {
+        res.json({ message: 'invalid action' });
+      }
+    }
+  }
 }
 
 module.exports = new ArticleController();

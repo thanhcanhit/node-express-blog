@@ -3,6 +3,7 @@ const controller = require('../controllers/ArticleController');
 
 const router = express.Router();
 
+router.post('/handle-form-actions', controller.handleFormAction);
 router.get('/:id/edit', controller.edit);
 router.patch('/:id/restore', controller.restore);
 router.delete('/:id/force', controller.forceDelete);

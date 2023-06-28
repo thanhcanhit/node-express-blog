@@ -27,6 +27,7 @@ body {
 
   &__img {
     object-fit: cover;
+    height: 100%;
     object-position: top;
     transition: all 0.55s ease;
     filter: brightness(0.8);
