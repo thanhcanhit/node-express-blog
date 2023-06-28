@@ -1,42 +1,35 @@
 <div class='row'>
   <h2 class='text-white text-center'>Kết quả tìm kiếm cho "{{searchQuery}}"</h2>
   {{#each articles}}
-    <div class='col-lg-3 col-sm-6 col-md-4 my-2'>
-      <div class='card border-dark article-item'>
-        <a href='/articles/{{this.slug}}'>
-          <div class='img-block'>
-            <img
-              src='{{this.imgPath}}'
-              class='card-img-top article-item__img'
-              alt='{{this.name}}'
-            />
+  <div class='col-lg-3 col-sm-6 col-md-4 my-2'>
+    <div class='card border-dark article-item'>
+      <a href='/articles/{{this.slug}}'>
+        <div class='img-block'>
+          <img src='{{this.imgPath}}' class='card-img-top article-item__img' alt='{{this.name}}' />
+        </div>
+      </a>
+      <div class='card-body'>
+        <a href='/articles/{{this.slug}}' class='text-decoration-none text-dark'>
+          <h5 class='card-title article-item__name'>{{this.name}}</h5>
+          <p class='card-text article-item__desc'>{{this.desc}}</p>
+          <div class='tag'>
+            <ul class='tag__list'>
+              {{#each this.tag}}
+              <li class='tag__item'>{{this}}</li>
+              {{/each}}
+            </ul>
           </div>
         </a>
-        <div class='card-body'>
-          <a
-            href='/articles/{{this.slug}}'
-            class='text-decoration-none text-dark'
-          >
-            <h5 class='card-title article-item__name'>{{this.name}}</h5>
-            <p class='card-text article-item__desc'>{{this.desc}}</p>
-            <div class='tag'>
-              <ul class='tag__list'>
-                {{#each this.tag}}
-                  <li class='tag__item'>{{this}}</li>
-                {{/each}}
-              </ul>
-            </div>
+        <div class='article-item__control'>
+          <a href='{{this.sourceLink}}' class='btn btn-dark w-100'>Source code</a>
+          <a href='{{this.previewLink}}' class='btn btn-dark w-100'>
+            Demo Sản phẩm
           </a>
-          <div class='article-item__control'>
-            <a href='{{this.sourceLink}}' class='btn btn-dark w-100'>Source code</a>
-            <a href='{{this.previewLink}}' class='btn btn-dark w-100'>
-              Demo Sản phẩm
-            </a>
-          </div>
         </div>
       </div>
     </div>
+  </div>
   {{else}}
-    <h5 class='text-white text-center'>Không tìm thấy kết quả nào</h5>
+  <h5 class='text-white text-center'>Không tìm thấy kết quả nào</h5>
   {{/each}}
 </div>

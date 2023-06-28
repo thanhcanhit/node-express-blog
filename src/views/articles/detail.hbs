@@ -1,113 +1,77 @@
 {{#with article}}
-  <div class='row my-4'>
-    {{! HEADING }}
-    <div class='col-12'>
-      <h1 class='text-center' style='color: cornflowerblue'>{{name}}</h1>
+<div class='row my-4'>
+  {{! HEADING }}
+  <div class='col-12'>
+    <h1 class='text-center' style='color: cornflowerblue'>{{name}}</h1>
+  </div>
+</div>
+
+<div class='row mt-2'>
+  {{! LEFT }}
+  <div class='col-lg-3 col-sm-12 bg-white rounded p-2 shadow position-sticky ' style='height: fit-content; top: 16px'>
+    <img class='d-block w-100 rounded' style='height: 300px; object-fit: cover; object-position: top;'
+      src='{{imgPath}}' />
+
+    <div class='d-flex flex-column gap-2 my-2'>
+      <a href='{{previewLink}}' class='btn btn-dark w-100'>Demo Sản phẩm</a>
+      <a href='{{sourceLink}}' class='btn btn-dark w-100'>Source code</a>
     </div>
+
+    <div class='tag'>
+      <b>Chủ đề:</b>
+      <ul class='tag__list'>
+        {{#each this.tag}}
+        <li class='tag__item'>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <p>
+      <b>Mô tả:</b>
+      {{desc}}
+    </p>
+
   </div>
 
-  <div class='row mt-2'>
-    {{! LEFT }}
-    <div
-      class='col-lg-3 col-sm-12 bg-white rounded p-2 shadow position-sticky '
-      style='height: fit-content; top: 16px'
-    >
-      <img
-        class='d-block w-100 rounded'
-        style='height: 300px; object-fit: cover; object-position: top;'
-        src='{{imgPath}}'
-      />
-
-      <div class='d-flex flex-column gap-2 my-2'>
-        <a href='{{previewLink}}' class='btn btn-dark w-100'>Demo Sản phẩm</a>
-        <a href='{{sourceLink}}' class='btn btn-dark w-100'>Source code</a>
+  {{! RIGHT }}
+  <div class='col-lg-9 col-sm-12'>
+    <div id='previewCarousel' class='carousel slide bg-dark rounded' data-bs-ride='carousel'>
+      <div class='carousel-indicators'>
+        <button type='button' data-bs-target='#previewCarousel' data-bs-slide-to='0' class='active'
+          aria-current='true'></button>
+        <button type='button' data-bs-target='#previewCarousel' data-bs-slide-to='1'></button>
+        <button type='button' data-bs-target='#previewCarousel' data-bs-slide-to='2'></button>
       </div>
-
-      <div class='tag'>
-        <b>Chủ đề:</b>
-        <ul class='tag__list'>
-          {{#each this.tag}}
-            <li class='tag__item'>{{this}}</li>
-          {{/each}}
-        </ul>
-      </div>
-
-      <p>
-        <b>Mô tả:</b>
-        {{desc}}
-      </p>
-
-    </div>
-
-    {{! RIGHT }}
-    <div class='col-lg-9 col-sm-12'>
-      <div
-        id='previewCarousel'
-        class='carousel slide bg-dark rounded'
-        data-bs-ride='carousel'
-      >
-        <div class='carousel-indicators'>
-          <button
-            type='button'
-            data-bs-target='#previewCarousel'
-            data-bs-slide-to='0'
-            class='active'
-            aria-current='true'
-          ></button>
-          <button
-            type='button'
-            data-bs-target='#previewCarousel'
-            data-bs-slide-to='1'
-          ></button>
-          <button
-            type='button'
-            data-bs-target='#previewCarousel'
-            data-bs-slide-to='2'
-          ></button>
+      <div class='carousel-inner'>
+        <div class='carousel-item active'>
+          <img src='{{imgPath}}' class='d-block w-100' style='height: 500px; object-fit: contain ' alt='...' />
         </div>
-        <div class='carousel-inner'>
-          <div class='carousel-item active'>
-            <img
-              src='{{imgPath}}'
-              class='d-block w-100'
-              style='height: 500px; object-fit: contain '
-              alt='...'
-            />
-          </div>
-        </div>
-        <button
-          class='carousel-control-prev'
-          type='button'
-          data-bs-target='#carouselExampleIndicators'
-          data-bs-slide='prev'
-        >
-          <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-          <span class='visually-hidden'>Previous</span>
-        </button>
-        <button
-          class='carousel-control-next'
-          type='button'
-          data-bs-target='#carouselExampleIndicators'
-          data-bs-slide='next'
-        >
-          <span class='carousel-control-next-icon' aria-hidden='true'></span>
-          <span class='visually-hidden'>Next</span>
-        </button>
       </div>
-      <p class='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Sapiente hic blanditiis aspernatur quos ipsum nemo. Possimus
-        voluptatibus tenetur neque voluptates sapiente iste quaerat eaque earum,
-        modi esse repellendus odio dicta! Nulla tempora nihil obcaecati omnis
-        totam amet cum ratione? Tempora animi dolores nihil blanditiis,
-        doloremque recusandae quod sit vero aspernatur rerum, dolorum laudantium
-        nisi asperiores, tenetur suscipit dolorem fuga quos. Pariatur minima, in
-        rerum cumque dolore ad officiis fugit! Consequuntur suscipit molestiae
-        cumque quod iusto unde. Neque totam dicta possimus vel aspernatur, quas
-        est odit modi, temporibus molestiae officiis. Nisi. Cumque amet
-        voluptate dicta facere quod iusto reiciendis fugit impedit delectus
-        assumenda, minima eaque nam architecto provident ut atque porro odio
-        necessitatibus nemo dolor similique excepturi in. Libero, consequuntur
-        hic.</p>
+      <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators'
+        data-bs-slide='prev'>
+        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+        <span class='visually-hidden'>Previous</span>
+      </button>
+      <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators'
+        data-bs-slide='next'>
+        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+        <span class='visually-hidden'>Next</span>
+      </button>
     </div>
+    <p class='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Sapiente hic blanditiis aspernatur quos ipsum nemo. Possimus
+      voluptatibus tenetur neque voluptates sapiente iste quaerat eaque earum,
+      modi esse repellendus odio dicta! Nulla tempora nihil obcaecati omnis
+      totam amet cum ratione? Tempora animi dolores nihil blanditiis,
+      doloremque recusandae quod sit vero aspernatur rerum, dolorum laudantium
+      nisi asperiores, tenetur suscipit dolorem fuga quos. Pariatur minima, in
+      rerum cumque dolore ad officiis fugit! Consequuntur suscipit molestiae
+      cumque quod iusto unde. Neque totam dicta possimus vel aspernatur, quas
+      est odit modi, temporibus molestiae officiis. Nisi. Cumque amet
+      voluptate dicta facere quod iusto reiciendis fugit impedit delectus
+      assumenda, minima eaque nam architecto provident ut atque porro odio
+      necessitatibus nemo dolor similique excepturi in. Libero, consequuntur
+      hic.</p>
   </div>
+</div>
 {{/with}}
