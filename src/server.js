@@ -4,8 +4,8 @@ const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const path = require('path');
 
-const router = require('./routes/');
 const mongodb = require('./config/mongodb');
+const router = require('./routes/');
 
 const app = express();
 
@@ -19,7 +19,7 @@ mongodb.connect();
 app.use(methodOverride('_method'));
 
 // Serve static file
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/')));
 
 // Body parser
 app.use(express.urlencoded({ extended: true }));

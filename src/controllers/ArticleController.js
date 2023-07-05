@@ -87,9 +87,20 @@ class ArticleController {
 
   // [POST] /articles
   async post(req, res, next) {
-    const formValue = { ...req.body, tag: splitTag(req.body.tag) };
+    const avatar = '/uploads/' + req.files['avatar'][0].filename;
+    const previewImgs = req.files['previewImgs'].map(
+      (item) => '/uploads/' + item.filename
+    );
+
+    const formValue = {
+      ...req.body,
+      tag: splitTag(req.body.tag),
+      imgPath: avatar,
+      previewImgs: previewImgs,
+    };
 
     const article = new Article(formValue);
+    res.json(article);
     try {
       await article.save();
       res.status(200).redirect('back');

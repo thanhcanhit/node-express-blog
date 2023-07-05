@@ -11,6 +11,7 @@ const Article = new Schema(
     imgPath: { type: String },
     sourceLink: { type: String },
     previewLink: { type: String },
+    previewImgs: [{ type: String }],
     tag: [{ type: String }],
     slug: { type: String, slug: 'name' },
     deleted: { type: Boolean, default: false },

@@ -1,6 +1,6 @@
 <div class='bg-white p-4 rounded' style='max-width: 600px; margin-inline: auto'>
   <h2 class='text-center'>Tạo bài viết mới</h2>
-  <form method='post' action='/articles'>
+  <form method='post' action='/articles' enctype="multipart/form-data">
     <div class='mb-3'>
       <label for='name' class='form-label'>Tên bài viết</label>
       <input type='text' class='form-control' name='name' />
@@ -10,8 +10,12 @@
       <textarea type='text' class='form-control' name='desc'></textarea>
     </div>
     <div class='mb-3'>
-      <label for='imgPath' class='form-label'>Link hình ảnh</label>
-      <input type='text' class='form-control' name='imgPath' />
+      <label for='avatar' class='form-label'>Hình ảnh đại diện</label>
+      <input type='file' class='form-control' name='avatar' />
+    </div>
+    <div class='mb-3'>
+      <label for='previewImgs' class='form-label'>Hình ảnh demo (tối đa 10)</label>
+      <input type='file' class='form-control' name='previewImgs' multiple />
     </div>
     <div class='mb-3'>
       <label for='sourceLink' class='form-label'>Link source</label>

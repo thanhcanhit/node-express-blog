@@ -43,35 +43,41 @@
         <button type='button' data-bs-target='#previewCarousel' data-bs-slide-to='2'></button>
       </div>
       <div class='carousel-inner'>
+        {{#each previewImgs}}
+        {{#if @first}}
         <div class='carousel-item active'>
-          <img src='{{imgPath}}' class='d-block w-100' style='height: 500px; object-fit: contain ' alt='...' />
+          {{else}}
+          <div class='carousel-item '>
+            {{/if}}
+            <img src='{{this}}' class='d-block w-100' style='height: 500px; object-fit: contain ' alt='...' />
+          </div>
+          {{/each}}
         </div>
+        <button class='carousel-control-prev' type='button' data-bs-target='#previewCarousel'
+          data-bs-slide='prev'>
+          <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+          <span class='visually-hidden'>Previous</span>
+        </button>
+        <button class='carousel-control-next' type='button' data-bs-target='#previewCarousel'
+          data-bs-slide='next'>
+          <span class='carousel-control-next-icon' aria-hidden='true'></span>
+          <span class='visually-hidden'>Next</span>
+        </button>
       </div>
-      <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleIndicators'
-        data-bs-slide='prev'>
-        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-        <span class='visually-hidden'>Previous</span>
-      </button>
-      <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleIndicators'
-        data-bs-slide='next'>
-        <span class='carousel-control-next-icon' aria-hidden='true'></span>
-        <span class='visually-hidden'>Next</span>
-      </button>
+      <p class='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Sapiente hic blanditiis aspernatur quos ipsum nemo. Possimus
+        voluptatibus tenetur neque voluptates sapiente iste quaerat eaque earum,
+        modi esse repellendus odio dicta! Nulla tempora nihil obcaecati omnis
+        totam amet cum ratione? Tempora animi dolores nihil blanditiis,
+        doloremque recusandae quod sit vero aspernatur rerum, dolorum laudantium
+        nisi asperiores, tenetur suscipit dolorem fuga quos. Pariatur minima, in
+        rerum cumque dolore ad officiis fugit! Consequuntur suscipit molestiae
+        cumque quod iusto unde. Neque totam dicta possimus vel aspernatur, quas
+        est odit modi, temporibus molestiae officiis. Nisi. Cumque amet
+        voluptate dicta facere quod iusto reiciendis fugit impedit delectus
+        assumenda, minima eaque nam architecto provident ut atque porro odio
+        necessitatibus nemo dolor similique excepturi in. Libero, consequuntur
+        hic.</p>
     </div>
-    <p class='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. Sapiente hic blanditiis aspernatur quos ipsum nemo. Possimus
-      voluptatibus tenetur neque voluptates sapiente iste quaerat eaque earum,
-      modi esse repellendus odio dicta! Nulla tempora nihil obcaecati omnis
-      totam amet cum ratione? Tempora animi dolores nihil blanditiis,
-      doloremque recusandae quod sit vero aspernatur rerum, dolorum laudantium
-      nisi asperiores, tenetur suscipit dolorem fuga quos. Pariatur minima, in
-      rerum cumque dolore ad officiis fugit! Consequuntur suscipit molestiae
-      cumque quod iusto unde. Neque totam dicta possimus vel aspernatur, quas
-      est odit modi, temporibus molestiae officiis. Nisi. Cumque amet
-      voluptate dicta facere quod iusto reiciendis fugit impedit delectus
-      assumenda, minima eaque nam architecto provident ut atque porro odio
-      necessitatibus nemo dolor similique excepturi in. Libero, consequuntur
-      hic.</p>
   </div>
-</div>
-{{/with}}
+  {{/with}}

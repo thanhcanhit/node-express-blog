@@ -100,27 +100,28 @@
 </script>
 
 {{! Multiple select }}
-<script >
-  const actionBtn = document.querySelector('#action-button'); 
-  const checkAll = document.querySelector('#check-all'); 
-  const checks = document.querySelectorAll('input[name="articleIds[]"]'); 
+<script>
+  const actionBtn = document.querySelector('#action-button');
+  const checkAll = document.querySelector('#check-all');
+  const checks = document.querySelectorAll('input[name="articleIds[]"]');
   const quantityCheckbox = checks.length;
-  let numChecked = 0; 
+  let numChecked = 0;
   function renderActionBtn() {
     actionBtn.disabled = numChecked <= 0;
-  } 
-  checkAll.onchange = e => { 
-    const isCheck = checkAll.checked; 
-    checks.forEach(item => item.checked=isCheck);
-    numChecked = isCheck ? quantityCheckbox : 0; 
-    renderActionBtn(); 
+  }
+  checkAll.onchange = e => {
+    const isCheck = checkAll.checked;
+    checks.forEach(item => item.checked = isCheck);
+    numChecked = isCheck ? quantityCheckbox : 0;
+    renderActionBtn();
   }
 
-  checks.forEach(check => { 
-    check.onchange = () => { const isChecked =
-      check.checked; numChecked += (isChecked ? 1 : -1); 
-      checkAll.checked = numChecked == quantityCheckbox; 
-      renderActionBtn(); 
-    } 
+  checks.forEach(check => {
+    check.onchange = () => {
+      const isChecked =
+        check.checked; numChecked += (isChecked ? 1 : -1);
+      checkAll.checked = numChecked == quantityCheckbox;
+      renderActionBtn();
+    }
   })
 </script>
